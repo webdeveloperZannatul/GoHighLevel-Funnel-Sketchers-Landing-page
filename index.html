@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoHighLevel Funnel Sketchers LandingPage</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --warm-white: #FDFAF6;
+            --cream: #F5EFE6;
+            --beige: #E8DDD0;
+            --beige-mid: #D4C4B0;
+            --sage: #8A9E8C;
+            --sage-light: #B5C9B7;
+            --sage-dark: #6B8A6D;
+            --terracotta: #C17A5E;
+            --terracotta-light: #D4967C;
+            --terracotta-muted: #E8C4B2;
+            --brown-warm: #8B6F5E;
+            --text-dark: #2D2420;
+            --text-mid: #5C4A3D;
+            --text-light: #8C7B6E;
+            --text-muted: #A89888;
+            --white: #FFFFFF;
+            --shadow-soft: 0 8px 40px rgba(45,36,32,0.08);
+            --shadow-card: 0 16px 48px rgba(45,36,32,0.10);
+            --shadow-float: 0 24px 64px rgba(45,36,32,0.14);
+            --radius-sm: 12px;
+            --radius-md: 20px;
+            --radius-lg: 32px;
+            --radius-xl: 48px;
+        }
+
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--warm-white); color: var(--text-dark); line-height: 1.6; overflow-x: hidden; }
+
+        /* ========== TYPOGRAPHY ========== */
+        .display-xl { font-family: 'Playfair Display', serif; font-size: clamp(2.4rem, 5vw, 4rem); font-weight: 600; line-height: 1.15; letter-spacing: -0.02em; }
+        .display-lg { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 600; line-height: 1.2; letter-spacing: -0.01em; }
+        .display-md { font-family: 'Playfair Display', serif; font-size: clamp(1.4rem, 2.5vw, 2rem); font-weight: 500; line-height: 1.3; }
+        .section-label { font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--terracotta); }
+        .body-lg { font-size: 1.1rem; line-height: 1.75; color: var(--text-mid); font-weight: 300; }
+        .body-md { font-size: 0.95rem; line-height: 1.7; color: var(--text-mid); }
+        .caption { font-size: 0.8rem; color: var(--text-muted); font-weight: 400; }
+
+        /* ========== BUTTONS ========== */
+        .btn-primary {
+            display: inline-flex; align-items: center; gap: 10px;
+            background: linear-gradient(135deg, var(--terracotta), var(--terracotta-light));
+            color: white; padding: 14px 28px; border-radius: 50px;
+            font-size: 0.9rem; font-weight: 600; letter-spacing: 0.02em;
+            border: none; cursor: pointer; text-decoration: none;
+            transition: all 0.3s ease; box-shadow: 0 8px 24px rgba(193,122,94,0.35);
+        }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(193,122,94,0.45); }
+        .btn-primary-lg {
+            padding: 18px 40px; font-size: 1rem; font-weight: 600;
+            border-radius: 50px; gap: 12px;
+        }
+        .btn-secondary {
+            display: inline-flex; align-items: center; gap: 10px;
+            background: transparent; color: var(--terracotta);
+            padding: 14px 28px; border-radius: 50px;
+            font-size: 0.9rem; font-weight: 600;
+            border: 1.5px solid var(--terracotta);
+            cursor: pointer; text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .btn-secondary:hover { background: var(--terracotta); color: white; transform: translateY(-2px); }
+
+        /* ========== HEADER ========== */
+        .header {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            background: rgba(253,250,246,0.95); backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(212,196,176,0.3);
+            transition: all 0.3s ease;
+        }
+        .header.scrolled { box-shadow: 0 4px 24px rgba(45,36,32,0.08); }
+        .header-inner {
+            max-width: 1200px; margin: 0 auto;
+            padding: 0 32px; height: 72px;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .logo {
+            display: flex; align-items: center; gap: 12px;
+            text-decoration: none;
+        }
+        .logo-mark {
+            width: 44px; height: 44px; background: linear-gradient(135deg, var(--sage-dark), var(--sage));
+            border-radius: 14px; display: flex; align-items: center; justify-content: center;
+            position: relative; overflow: hidden;
+        }
+        .logo-mark::before {
+            content: ''; position: absolute; width: 28px; height: 28px;
+            border: 2.5px solid rgba(255,255,255,0.9); border-radius: 50%;
+        }
+        .logo-mark::after {
+            content: ''; position: absolute; width: 14px; height: 14px;
+            background: rgba(255,255,255,0.9); border-radius: 50%;
+        }
+        .logo-leaf {
+            position: absolute; font-size: 18px; color: white; z-index: 1;
+        }
+        .logo-text-wrap { display: flex; flex-direction: column; line-height: 1.1; }
+        .logo-name { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--text-dark); letter-spacing: -0.01em; }
+        .logo-tagline { font-size: 0.65rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sage-dark); }
+
+        /* ========== HERO ========== */
+        .hero {
+            min-height: 100vh; padding-top: 72px;
+            background: linear-gradient(160deg, var(--warm-white) 0%, var(--cream) 50%, #EDE4D8 100%);
+            position: relative; overflow: hidden;
+            display: flex; align-items: center;
+        }
+        .hero::before {
+            content: ''; position: absolute; top: -100px; right: -150px;
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(138,158,140,0.12) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        .hero::after {
+            content: ''; position: absolute; bottom: -80px; left: -100px;
+            width: 400px; height: 400px;
+            background: radial-gradient(circle, rgba(193,122,94,0.08) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        .hero-inner {
+            max-width: 1200px; margin: 0 auto; padding: 80px 32px;
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 64px; align-items: center;
+            position: relative; z-index: 1;
+        }
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: rgba(138,158,140,0.15); border: 1px solid rgba(138,158,140,0.3);
+            padding: 8px 16px; border-radius: 50px; margin-bottom: 24px;
+        }
+        .badge-dot { width: 8px; height: 8px; background: var(--sage-dark); border-radius: 50%; animation: pulse 2s infinite; }
+        @keyframes pulse { 0%,100%{transform:scale(1);opacity:1;} 50%{transform:scale(1.3);opacity:0.7;} }
+        .hero-headline { margin-bottom: 24px; }
+        .hero-headline em { font-style: italic; color: var(--terracotta); }
+        .hero-sub { margin-bottom: 40px; }
+        .hero-trust {
+            display: flex; align-items: center; gap: 16px;
+            padding: 16px 0; border-top: 1px solid var(--beige);
+            margin-top: 40px; flex-wrap: wrap;
+        }
+        .trust-item { display: flex; align-items: center; gap: 6px; }
+        .trust-icon { color: var(--sage-dark); font-size: 0.85rem; }
+        .trust-text { font-size: 0.82rem; color: var(--text-mid); font-weight: 500; }
+        .trust-divider { width: 1px; height: 20px; background: var(--beige-mid); }
+        .hero-image-wrap {
+            position: relative; border-radius: var(--radius-lg);
+            overflow: hidden; aspect-ratio: 4/5;
+        }
+        .hero-image-wrap img { width: 100%; height: 100%; object-fit: cover; }
+        .hero-img-overlay {
+            position: absolute; inset: 0;
+            background: linear-gradient(180deg, transparent 60%, rgba(45,36,32,0.15) 100%);
+        }
+        .hero-stat-card {
+            position: absolute; bottom: 24px; left: -24px;
+            background: white; border-radius: var(--radius-md);
+            padding: 16px 20px; box-shadow: var(--shadow-card);
+            display: flex; align-items: center; gap: 12px;
+        }
+        .hero-stat-icon { width: 40px; height: 40px; background: var(--cream); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; }
+        .hero-stat-num { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: var(--text-dark); line-height: 1; }
+        .hero-stat-label { font-size: 0.72rem; color: var(--text-muted); font-weight: 500; letter-spacing: 0.05em; }
+        .hero-float-badge {
+            position: absolute; top: 24px; right: -16px;
+            background: linear-gradient(135deg, var(--terracotta), var(--terracotta-light));
+            color: white; padding: 12px 16px; border-radius: var(--radius-sm);
+            box-shadow: var(--shadow-card); text-align: center;
+        }
+        .float-badge-num { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 700; line-height: 1; }
+        .float-badge-text { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.08em; opacity: 0.9; text-transform: uppercase; }
+
+        /* ========== SECTION COMMON ========== */
+        section { padding: 96px 32px; }
+        .section-inner { max-width: 1200px; margin: 0 auto; }
+        .section-header { text-align: center; margin-bottom: 64px; }
+        .section-header .section-label { display: block; margin-bottom: 12px; }
+        .section-header p { max-width: 560px; margin: 16px auto 0; }
+
+        /* ========== BENEFITS ========== */
+        .benefits { background: var(--white); }
+        .benefits-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+        .benefit-card {
+            background: var(--warm-white); border-radius: var(--radius-md);
+            padding: 36px 28px; text-align: center;
+            border: 1px solid var(--beige); transition: all 0.3s ease;
+            position: relative; overflow: hidden;
+        }
+        .benefit-card::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+            background: linear-gradient(90deg, var(--sage), var(--sage-light));
+            transform: scaleX(0); transition: transform 0.3s ease; transform-origin: left;
+        }
+        .benefit-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-card); }
+        .benefit-card:hover::before { transform: scaleX(1); }
+        .benefit-icon {
+            width: 64px; height: 64px; margin: 0 auto 20px;
+            background: linear-gradient(135deg, rgba(138,158,140,0.15), rgba(138,158,140,0.05));
+            border-radius: 20px; display: flex; align-items: center; justify-content: center;
+            font-size: 1.5rem;
+        }
+        .benefit-title { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 600; margin-bottom: 10px; color: var(--text-dark); }
+        .benefit-desc { font-size: 0.85rem; color: var(--text-light); line-height: 1.65; }
+
+        /* ========== WHAT YOU'LL LEARN ========== */
+        .highlights { background: var(--cream); position: relative; overflow: hidden; }
+        .highlights::before {
+            content: ''; position: absolute; top: -200px; right: -200px;
+            width: 500px; height: 500px;
+            background: radial-gradient(circle, rgba(138,158,140,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        .highlights-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+        .highlights-image { border-radius: var(--radius-lg); overflow: hidden; position: relative; }
+        .highlights-image img { width: 100%; height: 520px; object-fit: cover; display: block; }
+        .highlights-image-overlay {
+            position: absolute; inset: 0;
+            background: linear-gradient(to bottom right, rgba(138,158,140,0.1), rgba(193,122,94,0.05));
+        }
+        .highlights-cards { display: flex; flex-direction: column; gap: 16px; }
+        .highlight-card {
+            background: white; border-radius: var(--radius-md); padding: 24px 28px;
+            display: flex; align-items: flex-start; gap: 20px;
+            box-shadow: var(--shadow-soft); border: 1px solid rgba(212,196,176,0.4);
+            transition: all 0.3s ease;
+        }
+        .highlight-card:hover { transform: translateX(8px); box-shadow: var(--shadow-card); }
+        .highlight-num {
+            min-width: 40px; height: 40px;
+            background: linear-gradient(135deg, var(--terracotta), var(--terracotta-light));
+            border-radius: 12px; display: flex; align-items: center; justify-content: center;
+            font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: white;
+        }
+        .highlight-content h4 { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 600; margin-bottom: 4px; color: var(--text-dark); }
+        .highlight-content p { font-size: 0.83rem; color: var(--text-light); line-height: 1.5; }
+
+        /* ========== SOCIAL PROOF STRIP ========== */
+        .proof-strip {
+            background: linear-gradient(135deg, var(--sage-dark), var(--sage));
+            padding: 48px 32px;
+        }
+        .proof-strip-inner {
+            max-width: 1200px; margin: 0 auto;
+            display: grid; grid-template-columns: repeat(4, 1fr);
+            gap: 32px; text-align: center;
+        }
+        .proof-stat-num { font-family: 'Playfair Display', serif; font-size: 2.4rem; font-weight: 700; color: white; line-height: 1; margin-bottom: 6px; }
+        .proof-stat-label { font-size: 0.8rem; color: rgba(255,255,255,0.8); letter-spacing: 0.08em; font-weight: 500; }
+        .proof-divider { width: 1px; background: rgba(255,255,255,0.2); }
+
+        /* ========== TESTIMONIALS ========== */
+        .testimonials { background: var(--warm-white); }
+        .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .testi-card {
+            background: white; border-radius: var(--radius-md);
+            padding: 36px 32px; border: 1px solid var(--beige);
+            box-shadow: var(--shadow-soft); position: relative;
+            transition: all 0.3s ease; overflow: hidden;
+        }
+        .testi-card::after {
+            content: '"'; position: absolute; bottom: -10px; right: 24px;
+            font-family: 'Playfair Display', serif; font-size: 8rem; color: var(--beige);
+            line-height: 1; font-weight: 700; pointer-events: none;
+        }
+        .testi-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-card); }
+        .testi-stars { display: flex; gap: 4px; margin-bottom: 20px; }
+        .testi-stars i { color: #D4975C; font-size: 0.85rem; }
+        .testi-quote { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-style: italic; color: var(--text-mid); line-height: 1.7; margin-bottom: 24px; position: relative; z-index: 1; }
+        .testi-author { display: flex; align-items: center; gap: 14px; }
+        .testi-avatar { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; border: 2px solid var(--beige); }
+        .testi-name { font-weight: 600; font-size: 0.9rem; color: var(--text-dark); }
+        .testi-role { font-size: 0.78rem; color: var(--text-muted); }
+        .testi-tag {
+            display: inline-block; background: var(--cream);
+            color: var(--sage-dark); font-size: 0.7rem; font-weight: 600;
+            padding: 3px 10px; border-radius: 20px; letter-spacing: 0.05em;
+            margin-top: 4px;
+        }
+
+        /* ========== INSTRUCTOR ========== */
+        .instructor {
+            background: var(--cream); position: relative; overflow: hidden;
+        }
+        .instructor::before {
+            content: ''; position: absolute; inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23D4C4B0' fill-opacity='0.25'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        .instructor-layout { display: grid; grid-template-columns: 2fr 3fr; gap: 80px; align-items: center; position: relative; z-index: 1; }
+        .instructor-image-wrap { position: relative; }
+        .instructor-img {
+            width: 100%; aspect-ratio: 3/4; object-fit: cover;
+            border-radius: var(--radius-lg); box-shadow: var(--shadow-float);
+        }
+        .instructor-accent {
+            position: absolute; top: -16px; left: -16px;
+            width: 80px; height: 80px;
+            background: linear-gradient(135deg, var(--terracotta), var(--terracotta-light));
+            border-radius: 24px; z-index: -1; opacity: 0.6;
+        }
+        .instructor-accent-2 {
+            position: absolute; bottom: -20px; right: -20px;
+            width: 60px; height: 60px;
+            background: linear-gradient(135deg, var(--sage), var(--sage-light));
+            border-radius: 18px; z-index: -1; opacity: 0.5;
+        }
+        .instructor-name-plate {
+            position: absolute; bottom: 24px; left: 50%; transform: translateX(-50%);
+            background: white; border-radius: var(--radius-sm);
+            padding: 14px 20px; box-shadow: var(--shadow-card);
+            text-align: center; white-space: nowrap;
+        }
+        .instructor-info { }
+        .instructor-name { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 600; margin-bottom: 4px; color: var(--text-dark); }
+        .instructor-title { color: var(--terracotta); font-size: 0.9rem; font-weight: 500; margin-bottom: 24px; }
+        .instructor-bio { margin-bottom: 32px; }
+        .credential-list { display: flex; flex-direction: column; gap: 12px; }
+        .credential-item {
+            display: flex; align-items: center; gap: 12px;
+            padding: 14px 18px; background: white; border-radius: var(--radius-sm);
+            border-left: 3px solid var(--sage-dark); box-shadow: var(--shadow-soft);
+        }
+        .credential-icon { color: var(--sage-dark); font-size: 0.9rem; min-width: 18px; }
+        .credential-text { font-size: 0.88rem; color: var(--text-mid); font-weight: 500; }
+
+        /* ========== HOW IT WORKS ========== */
+        .how-it-works { background: white; }
+        .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; position: relative; }
+        .steps-grid::before {
+            content: ''; position: absolute; top: 40px; left: calc(16.66% + 16px); right: calc(16.66% + 16px); height: 1px;
+            background: linear-gradient(90deg, var(--beige), var(--sage-light), var(--beige));
+        }
+        .step-card { text-align: center; padding: 32px 24px; position: relative; }
+        .step-number {
+            width: 80px; height: 80px; margin: 0 auto 24px;
+            background: linear-gradient(135deg, var(--cream), var(--beige));
+            border: 2px solid var(--beige-mid); border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 700;
+            color: var(--terracotta); position: relative; z-index: 1;
+        }
+        .step-icon-img { width: 100%; height: 160px; object-fit: cover; border-radius: var(--radius-md); margin-bottom: 20px; }
+        .step-title { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 600; margin-bottom: 10px; color: var(--text-dark); }
+        .step-desc { font-size: 0.85rem; color: var(--text-light); line-height: 1.65; }
+
+        /* ========== REGISTRATION FORM ========== */
+        .registration { background: linear-gradient(160deg, var(--cream) 0%, var(--beige) 100%); position: relative; overflow: hidden; }
+        .registration::before {
+            content: ''; position: absolute; top: -150px; right: -100px;
+            width: 400px; height: 400px;
+            background: radial-gradient(circle, rgba(193,122,94,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        .registration-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; position: relative; z-index: 1; }
+        .reg-left h2 { margin-bottom: 16px; }
+        .reg-left p { margin-bottom: 32px; }
+        .reg-feature-list { display: flex; flex-direction: column; gap: 14px; margin-bottom: 40px; }
+        .reg-feature {
+            display: flex; align-items: center; gap: 12px;
+        }
+        .reg-feature-check {
+            width: 24px; height: 24px; background: linear-gradient(135deg, var(--sage-dark), var(--sage));
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            color: white; font-size: 0.65rem; flex-shrink: 0;
+        }
+        .reg-feature-text { font-size: 0.9rem; color: var(--text-mid); font-weight: 500; }
+        .reg-image { border-radius: var(--radius-md); overflow: hidden; }
+        .reg-image img { width: 100%; height: 280px; object-fit: cover; }
+        .form-card {
+            background: white; border-radius: var(--radius-lg);
+            padding: 48px 40px; box-shadow: var(--shadow-float);
+            border: 1px solid rgba(212,196,176,0.4);
+        }
+        .form-header { text-align: center; margin-bottom: 32px; }
+        .form-headline { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 600; color: var(--text-dark); margin-bottom: 8px; }
+        .form-sub { font-size: 0.85rem; color: var(--text-muted); }
+        .form-free-badge {
+            display: inline-flex; align-items: center; gap: 6px;
+            background: linear-gradient(135deg, var(--sage-dark), var(--sage));
+            color: white; padding: 6px 14px; border-radius: 20px;
+            font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em;
+            margin-bottom: 16px;
+        }
+        .form-group { margin-bottom: 20px; }
+        .form-label { display: block; font-size: 0.82rem; font-weight: 600; color: var(--text-dark); margin-bottom: 8px; letter-spacing: 0.02em; }
+        .form-input {
+            width: 100%; padding: 14px 18px;
+            border: 1.5px solid var(--beige-mid); border-radius: var(--radius-sm);
+            background: var(--warm-white); font-family: 'Inter', sans-serif;
+            font-size: 0.9rem; color: var(--text-dark); outline: none;
+            transition: all 0.3s ease;
+        }
+        .form-input:focus { border-color: var(--sage-dark); box-shadow: 0 0 0 3px rgba(107,138,109,0.12); background: white; }
+        .form-input::placeholder { color: var(--text-muted); }
+        .form-select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238C7B6E' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 16px center; padding-right: 44px; }
+        .form-submit {
+            width: 100%; padding: 18px;
+            background: linear-gradient(135deg, var(--terracotta), var(--terracotta-light));
+            color: white; border: none; border-radius: 50px;
+            font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 700;
+            cursor: pointer; letter-spacing: 0.02em;
+            transition: all 0.3s ease; box-shadow: 0 8px 24px rgba(193,122,94,0.35);
+            margin-top: 8px; display: flex; align-items: center; justify-content: center; gap: 10px;
+        }
+        .form-submit:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(193,122,94,0.45); }
+        .form-micro { text-align: center; margin-top: 16px; font-size: 0.78rem; color: var(--text-muted); display: flex; align-items: center; justify-content: center; gap: 6px; }
+        .form-micro i { color: var(--sage-dark); font-size: 0.75rem; }
+
+        /* ========== FOOTER ========== */
+        .footer { background: var(--text-dark); padding: 64px 32px 32px; }
+        .footer-inner { max-width: 1200px; margin: 0 auto; }
+        .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; padding-bottom: 48px; border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 32px; }
+        .footer-logo { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+        .footer-logo-mark {
+            width: 44px; height: 44px; background: linear-gradient(135deg, var(--sage-dark), var(--sage));
+            border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; color: white;
+        }
+        .footer-logo-name { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: white; }
+        .footer-logo-tag { font-size: 0.65rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sage-light); display: block; }
+        .footer-desc { font-size: 0.85rem; color: rgba(255,255,255,0.5); line-height: 1.7; margin-bottom: 24px; max-width: 280px; }
+        .footer-socials { display: flex; gap: 10px; }
+        .social-btn {
+            width: 36px; height: 36px; border-radius: 10px;
+            background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12);
+            display: flex; align-items: center; justify-content: center;
+            color: rgba(255,255,255,0.6); font-size: 0.85rem; text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .social-btn:hover { background: var(--terracotta); border-color: var(--terracotta); color: white; transform: translateY(-2px); }
+        .footer-col-title { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 20px; }
+        .footer-links { display: flex; flex-direction: column; gap: 10px; }
+        .footer-link { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.88rem; transition: color 0.3s ease; }
+        .footer-link:hover { color: var(--terracotta-light); }
+        .footer-bottom { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+        .footer-copy { font-size: 0.8rem; color: rgba(255,255,255,0.3); }
+        .footer-legal { display: flex; gap: 20px; }
+        .footer-legal a { font-size: 0.8rem; color: rgba(255,255,255,0.35); text-decoration: none; transition: color 0.3s ease; }
+        .footer-legal a:hover { color: rgba(255,255,255,0.6); }
+
+        /* ========== ANIMATIONS ========== */
+        .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+        .fade-in-delay-1 { transition-delay: 0.1s; }
+        .fade-in-delay-2 { transition-delay: 0.2s; }
+        .fade-in-delay-3 { transition-delay: 0.3s; }
+        .fade-in-delay-4 { transition-delay: 0.4s; }
+
+        /* ========== MOBILE ========== */
+        @media (max-width: 768px) {
+            section { padding: 72px 20px; }
+            .header-inner { padding: 0 20px; }
+            .hero-inner { grid-template-columns: 1fr; gap: 40px; padding: 56px 20px; }
+            .hero-image-wrap { aspect-ratio: 4/3; order: -1; }
+            .hero-stat-card { left: 12px; bottom: 12px; }
+            .hero-float-badge { right: 12px; top: 12px; }
+            .benefits-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+            .highlights-layout { grid-template-columns: 1fr; gap: 40px; }
+            .highlights-image img { height: 300px; }
+            .proof-strip-inner { grid-template-columns: 1fr 1fr; gap: 24px; }
+            .proof-divider { display: none; }
+            .testimonials-grid { grid-template-columns: 1fr; gap: 20px; }
+            .instructor-layout { grid-template-columns: 1fr; gap: 40px; }
+            .instructor-img { aspect-ratio: 4/3; }
+            .steps-grid { grid-template-columns: 1fr; gap: 24px; }
+            .steps-grid::before { display: none; }
+            .registration-layout { grid-template-columns: 1fr; gap: 40px; }
+            .form-card { padding: 32px 24px; }
+            .footer-top { grid-template-columns: 1fr; gap: 32px; }
+            .footer-bottom { flex-direction: column; text-align: center; }
+            .btn-primary-lg { padding: 16px 28px; font-size: 0.95rem; }
+        }
+        @media (max-width: 480px) {
+            .benefits-grid { grid-template-columns: 1fr; }
+            .logo-text-wrap .logo-tagline { display: none; }
+        }
+
+        /* Image placeholders with gradients */
+        .img-placeholder { width: 100%; display: block; }
+    </style>
+</head>
+<body>
+
+    <!-- ====== HEADER ====== -->
+    <header class="header" id="mainHeader">
+        <div class="header-inner">
+            <a href="#" class="logo">
+                <div class="logo-mark">
+                    <i class="fas fa-seedling logo-leaf"></i>
+                </div>
+                <div class="logo-text-wrap">
+                    <span class="logo-name">Bloom &amp; Learn</span>
+                    <span class="logo-tagline">Nurturing Brilliant Minds</span>
+                </div>
+            </a>
+            <a href="#register" class="btn-primary">
+                <i class="fas fa-calendar-check"></i>
+                Reserve My Free Seat
+            </a>
+        </div>
+    </header>
+
+    <!-- ====== HERO ====== -->
+    <section class="hero" id="hero">
+        <div class="hero-inner">
+            <div class="hero-content">
+                <div class="hero-badge fade-in">
+                    <span class="badge-dot"></span>
+                    <span class="section-label" style="letter-spacing:0.1em;">Free Online Masterclass • Live &amp; Interactive</span>
+                </div>
+                <h1 class="display-xl hero-headline fade-in fade-in-delay-1">
+                    Raise a Child Who Loves Learning <em>Without</em> the Daily Struggle
+                </h1>
+                <p class="body-lg hero-sub fade-in fade-in-delay-2">
+                    Join thousands of parents discovering the gentle, proven approach to building lifelong learning habits — from home, on your schedule.
+                </p>
+                <div class="fade-in fade-in-delay-3">
+                    <a href="#register" class="btn-primary btn-primary-lg">
+                        <i class="fas fa-gift"></i>
+                        Claim Your Free Spot Now
+                        <i class="fas fa-arrow-right" style="font-size:0.85rem;"></i>
+                    </a>
+                </div>
+                <div class="hero-trust fade-in fade-in-delay-4">
+                    <div class="trust-item">
+                        <i class="fas fa-users trust-icon"></i>
+                        <span class="trust-text">14,200+ parents enrolled</span>
+                    </div>
+                    <div class="trust-divider"></div>
+                    <div class="trust-item">
+                        <i class="fas fa-star trust-icon" style="color:var(--terracotta);"></i>
+                        <span class="trust-text">4.9 / 5 rating</span>
+                    </div>
+                    <div class="trust-divider"></div>
+                    <div class="trust-item">
+                        <i class="fas fa-lock trust-icon"></i>
+                        <span class="trust-text">100% Free — No card needed</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image-col fade-in fade-in-delay-2">
+                <div class="hero-image-wrap">
+                    <img src="https://img.magnific.com/free-photo/mother-helping-daughter-with-homework_23-2148334877.jpg?semt=ais_hybrid&w=740&q=80" alt="Mother and child learning together at home" loading="eager">
+                    <div class="hero-img-overlay"></div>
+                </div>
+                <div class="hero-stat-card">
+                    <div class="hero-stat-icon">🏡</div>
+                    <div>
+                        <div class="hero-stat-num">97%</div>
+                        <div class="hero-stat-label">See results within<br>2 weeks</div>
+                    </div>
+                </div>
+                <div class="hero-float-badge">
+                    <div class="float-badge-num">FREE</div>
+                    <div class="float-badge-text">Masterclass</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== BENEFITS ====== -->
+    <section class="benefits">
+        <div class="section-inner">
+            <div class="section-header fade-in">
+                <span class="section-label">What You'll Gain</span>
+                <h2 class="display-lg">Everything a Thriving Parent-Learner Partnership Needs</h2>
+                <p class="body-md">Four pillars that transform how your child relates to learning — and how you relate to parenting it.</p>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card fade-in fade-in-delay-1">
+                    <div class="benefit-icon">🌱</div>
+                    <h3 class="benefit-title">Cultivate Natural Curiosity</h3>
+                    <p class="benefit-desc">Simple daily rituals that keep wonder alive through every age and stage.</p>
+                    <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=400&q=75&fit=crop" alt="Child exploring nature" style="width:100%;height:100px;object-fit:cover;border-radius:10px;margin-top:16px;">
+                </div>
+                <div class="benefit-card fade-in fade-in-delay-2">
+                    <div class="benefit-icon">🤝</div>
+                    <h3 class="benefit-title">Build Unshakeable Confidence</h3>
+                    <p class="benefit-desc">Evidence-based strategies to raise self-directed, resilient learners.</p>
+                    <img src="https://images.unsplash.com/photo-1549923746-c502d488b3ea?w=400&q=75&fit=crop" alt="Confident child learning" style="width:100%;height:100px;object-fit:cover;border-radius:10px;margin-top:16px;">
+                </div>
+                <div class="benefit-card fade-in fade-in-delay-3">
+                    <div class="benefit-icon">⚡</div>
+                    <h3 class="benefit-title">End Homework Battles</h3>
+                    <p class="benefit-desc">A peaceful home-learning rhythm that the whole family actually enjoys.</p>
+                    <img src="https://images.unsplash.com/photo-1484863137850-59afcfe05386?w=400&q=75&fit=crop" alt="Peaceful home learning" style="width:100%;height:100px;object-fit:cover;border-radius:10px;margin-top:16px;">
+                </div>
+                <div class="benefit-card fade-in fade-in-delay-4">
+                    <div class="benefit-icon">🌟</div>
+                    <h3 class="benefit-title">Personalise Their Path</h3>
+                    <p class="benefit-desc">Discover your child's unique learning style and work with it, not against it.</p>
+                    <img src="https://www.ilxgroup.com/blog/wp-content/uploads/2024/09/Personalised-learning-paths-blog-banner.jpg?w=400&amp;q=90&amp;fit=crop" alt="Child discovering their path" style="width:100%;height:100px;object-fit:cover;border-radius:10px;margin-top:16px;">
+                 <!--    <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?w=400&q=75&fit=crop" alt="Child discovering their path" style="width:100%;height:100px;object-fit:cover;border-radius:10px;margin-top:16px;"> -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== HIGHLIGHTS ====== -->
+    <section class="highlights">
+        <div class="section-inner">
+            <div class="highlights-layout">
+                <div class="highlights-image fade-in">
+                    <img src="https://completewellbeing.com/wp-content/uploads/2025/08/busy-parents.jpg?w=700&q=85&fit=crop&crop=faces" alt="Parent and child studying at home together" loading="lazy">
+                    <div class="highlights-image-overlay"></div>
+                </div>
+                <div class="fade-in fade-in-delay-2">
+                    <span class="section-label" style="display:block;margin-bottom:12px;">Inside This Masterclass</span>
+                    <h2 class="display-lg" style="margin-bottom:40px;">Six Transformative Lessons Crafted for Busy Parents</h2>
+                    <div class="highlights-cards">
+                        <div class="highlight-card">
+                            <div class="highlight-num">01</div>
+                            <div class="highlight-content">
+                                <h4>The Learning Blueprint Every Child Needs</h4>
+                                <p>Understanding how the developing brain learns and retains information effortlessly.</p>
+                            </div>
+                        </div>
+                        <div class="highlight-card">
+                            <div class="highlight-num">02</div>
+                            <div class="highlight-content">
+                                <h4>Creating the Perfect Home Learning Space</h4>
+                                <p>Design a calming, inspiring environment that invites deep focus and creativity.</p>
+                            </div>
+                        </div>
+                        <div class="highlight-card">
+                            <div class="highlight-num">03</div>
+                            <div class="highlight-content">
+                                <h4>The 15-Minute Connection Ritual</h4>
+                                <p>A short daily practice that strengthens your bond and amplifies academic results.</p>
+                            </div>
+                        </div>
+                        <div class="highlight-card">
+                            <div class="highlight-num">04</div>
+                            <div class="highlight-content">
+                                <h4>Emotion Coaching for Academic Success</h4>
+                                <p>Help your child regulate frustration and build genuine perseverance.</p>
+                            </div>
+                        </div>
+                        <div class="highlight-card">
+                            <div class="highlight-num">05</div>
+                            <div class="highlight-content">
+                                <h4>Conversation Starters That Spark Genius</h4>
+                                <p>Questions and prompts that deepen critical thinking at any age.</p>
+                            </div>
+                        </div>
+                        <div class="highlight-card">
+                            <div class="highlight-num">06</div>
+                            <div class="highlight-content">
+                                <h4>Your 30-Day Family Learning Action Plan</h4>
+                                <p>Walk away with a clear, personalised roadmap you can start tonight.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== PROOF STRIP ====== -->
+    <div class="proof-strip">
+        <div class="proof-strip-inner">
+            <div class="fade-in">
+                <div class="proof-stat-num">14,200+</div>
+                <div class="proof-stat-label">Parents Enrolled</div>
+            </div>
+            <div class="proof-divider"></div>
+            <div class="fade-in fade-in-delay-1">
+                <div class="proof-stat-num">4.9★</div>
+                <div class="proof-stat-label">Average Rating</div>
+            </div>
+            <div class="proof-divider"></div>
+            <div class="fade-in fade-in-delay-2">
+                <div class="proof-stat-num">97%</div>
+                <div class="proof-stat-label">See Real Results</div>
+            </div>
+            <div class="proof-divider"></div>
+            <div class="fade-in fade-in-delay-3">
+                <div class="proof-stat-num">32+</div>
+                <div class="proof-stat-label">Countries Represented</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ====== TESTIMONIALS ====== -->
+    <section class="testimonials">
+        <div class="section-inner">
+            <div class="section-header fade-in">
+                <span class="section-label">Real Parent Stories</span>
+                <h2 class="display-lg">Families Who Turned It All Around</h2>
+                <p class="body-md">Hear from parents just like you who discovered a calmer, more joyful way to support their child's education.</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testi-card fade-in fade-in-delay-1">
+                    <div class="testi-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="testi-quote">"After just two weeks of using the techniques from this masterclass, our evenings went from chaos to calm. My daughter now sits down to study without being asked. I honestly could not believe the change."</p>
+                    <div class="testi-author">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80&fit=crop&crop=face" alt="Sarah M." class="testi-avatar" loading="lazy">
+                        <div>
+                            <div class="testi-name">Sarah Mitchell</div>
+                            <div class="testi-role">Mother of two, London</div>
+                            <span class="testi-tag">Primary School Parent</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testi-card fade-in fade-in-delay-2">
+                    <div class="testi-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="testi-quote">"I came in sceptical. I left completely transformed. The 15-minute ritual alone changed our entire family dynamic. My son actually told me school is 'kind of fun now.' That made me cry."</p>
+                    <div class="testi-author">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80&fit=crop&crop=face" alt="James T." class="testi-avatar" loading="lazy">
+                        <div>
+                            <div class="testi-name">James Thompson</div>
+                            <div class="testi-role">Father of one, Manchester</div>
+                            <span class="testi-tag">Secondary School Parent</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testi-card fade-in fade-in-delay-3">
+                    <div class="testi-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="testi-quote">"As a single mum working full time, I needed something realistic. This masterclass gave me exactly that — simple, powerful shifts I could implement immediately, even on my busiest days."</p>
+                    <div class="testi-author">
+                        <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=100&q=80&fit=crop&crop=face" alt="Amara N." class="testi-avatar" loading="lazy">
+                        <div>
+                            <div class="testi-name">Amara Nwosu</div>
+                            <div class="testi-role">Single mum, Birmingham</div>
+                            <span class="testi-tag">Home-schooling Parent</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align:center;margin-top:48px;" class="fade-in">
+                <div style="display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-bottom:32px;">
+                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&q=80&fit=crop&crop=face" style="width:52px;height:52px;border-radius:50%;border:3px solid white;box-shadow:0 4px 12px rgba(0,0,0,0.1);object-fit:cover;" alt="Parent">
+                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=80&q=80&fit=crop&crop=face" style="width:52px;height:52px;border-radius:50%;border:3px solid white;box-shadow:0 4px 12px rgba(0,0,0,0.1);object-fit:cover;margin-left:-16px;" alt="Parent">
+                    <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?w=80&q=80&fit=crop&crop=face" style="width:52px;height:52px;border-radius:50%;border:3px solid white;box-shadow:0 4px 12px rgba(0,0,0,0.1);object-fit:cover;margin-left:-16px;" alt="Parent">
+                    <img src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?w=80&q=80&fit=crop&crop=face" style="width:52px;height:52px;border-radius:50%;border:3px solid white;box-shadow:0 4px 12px rgba(0,0,0,0.1);object-fit:cover;margin-left:-16px;" alt="Parent">
+                    <img src="https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?w=80&q=80&fit=crop&crop=face" style="width:52px;height:52px;border-radius:50%;border:3px solid white;box-shadow:0 4px 12px rgba(0,0,0,0.1);object-fit:cover;margin-left:-16px;" alt="Parent">
+                </div>
+                <p class="body-md" style="color:var(--text-muted);font-size:0.88rem;">Join 14,200+ parents already on this journey</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== INSTRUCTOR ====== -->
+    <section class="instructor">
+        <div class="section-inner">
+            <div class="instructor-layout">
+                <div class="instructor-image-wrap fade-in">
+                    <div class="instructor-accent"></div>
+                    <img src="https://images.unsplash.com/photo-1580894894513-541e068a3e2b?w=600&q=85&fit=crop&crop=faces,top" alt="Dr. Eleanor Reid — Child Learning Expert" class="instructor-img" loading="lazy">
+                    <div class="instructor-accent-2"></div>
+                    <div class="instructor-name-plate">
+                        <div style="font-family:'Playfair Display',serif;font-size:0.95rem;font-weight:700;color:var(--text-dark);">Dr. Eleanor Reid</div>
+                        <div style="font-size:0.72rem;color:var(--terracotta);font-weight:600;letter-spacing:0.05em;">Child Learning Specialist</div>
+                    </div>
+                </div>
+                <div class="instructor-info fade-in fade-in-delay-2">
+                    <span class="section-label" style="display:block;margin-bottom:12px;">Your Masterclass Host</span>
+                    <h2 class="instructor-name">Dr. Eleanor Reid</h2>
+                    <p class="instructor-title">Award-Winning Educator · Child Development Specialist · Bestselling Author</p>
+                    <p class="body-lg instructor-bio">
+                        Eleanor has spent 18 years researching and applying the neuroscience of learning in real family settings. Her approach — gentle, evidence-based, and deeply practical — has helped over 14,000 families rediscover the joy of learning together.
+                    </p>
+                    <div style="margin-bottom:32px;">
+                        <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600&q=80&fit=crop" alt="Eleanor teaching parents" style="width:100%;height:180px;object-fit:cover;border-radius:var(--radius-md);">
+                    </div>
+                    <div class="credential-list">
+                        <div class="credential-item">
+                            <i class="fas fa-graduation-cap credential-icon"></i>
+                            <span class="credential-text">PhD in Educational Psychology, University of Cambridge</span>
+                        </div>
+                        <div class="credential-item">
+                            <i class="fas fa-book-open credential-icon"></i>
+                            <span class="credential-text">Author of <em>"The Curious Child Blueprint"</em> — Sunday Times Bestseller</span>
+                        </div>
+                        <div class="credential-item">
+                            <i class="fas fa-tv credential-icon"></i>
+                            <span class="credential-text">Featured in BBC, The Guardian, and Parent Magazine</span>
+                        </div>
+                        <div class="credential-item">
+                            <i class="fas fa-award credential-icon"></i>
+                            <span class="credential-text">Recipient of the 2023 National Education Innovation Award</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== HOW IT WORKS ====== -->
+    <section class="how-it-works">
+        <div class="section-inner">
+            <div class="section-header fade-in">
+                <span class="section-label">Simple Process</span>
+                <h2 class="display-lg">Your Journey Starts in Three Easy Steps</h2>
+                <p class="body-md">No tech overwhelm. No complicated setup. Just register, attend, and transform.</p>
+            </div>
+            <div class="steps-grid">
+                <div class="step-card fade-in fade-in-delay-1">
+                    <div class="step-number">1</div>
+                    <img src="https://images.unsplash.com/photo-1515378960530-7c0da6231fb1?w=400&q=80&fit=crop" alt="Register online easily" class="step-icon-img" loading="lazy">
+                    <h3 class="step-title">Register in 60 Seconds</h3>
+                    <p class="step-desc">Fill in the simple form below. Your seat is immediately reserved — completely free, no card required.</p>
+                </div>
+                <div class="step-card fade-in fade-in-delay-2">
+                    <div class="step-number">2</div>
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400&q=80&fit=crop" alt="Attend live masterclass" class="step-icon-img" loading="lazy">
+                    <h3 class="step-title">Attend Live From Home</h3>
+                    <p class="step-desc">Join from any device, anywhere in the world. Interact live, ask questions, and learn at your own pace.</p>
+                </div>
+                <div class="step-card fade-in fade-in-delay-3">
+                    <div class="step-number">3</div>
+                    <img src="https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?w=400&q=80&fit=crop" alt="Transform family learning" class="step-icon-img" loading="lazy">
+                    <h3 class="step-title">Transform Your Family</h3>
+                    <p class="step-desc">Apply your personalised action plan and watch your child's relationship with learning blossom within days.</p>
+                </div>
+            </div>
+            <div style="text-align:center;margin-top:56px;" class="fade-in">
+                <a href="#register" class="btn-primary btn-primary-lg">
+                    <i class="fas fa-rocket"></i>
+                    Yes! Reserve My Free Spot
+                </a>
+                <p class="caption" style="margin-top:12px;">Limited seats available for each session</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== REGISTRATION ====== -->
+    <section class="registration" id="register">
+        <div class="section-inner">
+            <div class="registration-layout">
+                <div class="reg-left fade-in">
+                    <span class="section-label" style="display:block;margin-bottom:12px;">Register Now — It's Completely Free</span>
+                    <h2 class="display-lg">Take the First Step Towards a Happier Learning Home</h2>
+                    <p class="body-lg" style="margin-top:16px;margin-bottom:32px;">
+                        In just 90 minutes, you'll have a clear, actionable framework to transform how your child approaches learning — and how you support them through it.
+                    </p>
+                    <div class="reg-feature-list">
+                        <div class="reg-feature">
+                            <div class="reg-feature-check"><i class="fas fa-check"></i></div>
+                            <span class="reg-feature-text">Live interactive session with Dr. Eleanor Reid</span>
+                        </div>
+                        <div class="reg-feature">
+                            <div class="reg-feature-check"><i class="fas fa-check"></i></div>
+                            <span class="reg-feature-text">Downloadable 30-Day Action Plan (worth £47)</span>
+                        </div>
+                        <div class="reg-feature">
+                            <div class="reg-feature-check"><i class="fas fa-check"></i></div>
+                            <span class="reg-feature-text">Personalised learning style assessment for your child</span>
+                        </div>
+                        <div class="reg-feature">
+                            <div class="reg-feature-check"><i class="fas fa-check"></i></div>
+                            <span class="reg-feature-text">Private parent community access included</span>
+                        </div>
+                        <div class="reg-feature">
+                            <div class="reg-feature-check"><i class="fas fa-check"></i></div>
+                            <span class="reg-feature-text">Replay available for 48 hours after the live session</span>
+                        </div>
+                    </div>
+                    <div class="reg-image fade-in fade-in-delay-2">
+                        <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=700&q=85&fit=crop" alt="Family learning together at home" loading="lazy">
+                    </div>
+                </div>
+                <div class="fade-in fade-in-delay-2">
+                    <div class="form-card">
+                        <div class="form-header">
+                            <div class="form-free-badge">
+                                <i class="fas fa-gift"></i>
+                                100% FREE — No Credit Card Required
+                            </div>
+                            <h3 class="form-headline">Reserve Your Free Seat Today</h3>
+                            <p class="form-sub">Join 14,200+ parents already signed up. Seats are limited.</p>
+                        </div>
+                        <form id="registrationForm" onsubmit="handleSubmit(event)">
+                            <div class="form-group">
+                                <label class="form-label" for="firstName">First Name</label>
+                                <input type="text" id="firstName" class="form-input" placeholder="Your first name" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="lastName">Last Name</label>
+                                <input type="text" id="lastName" class="form-input" placeholder="Your last name" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="email">Email Address</label>
+                                <input type="email" id="email" class="form-input" placeholder="you@example.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="phone">Phone Number (optional)</label>
+                                <input type="tel" id="phone" class="form-input" placeholder="+44 7700 000000">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="childAge">Child's Age Group</label>
+                                <select id="childAge" class="form-input form-select" required>
+                                    <option value="" disabled selected>Select age group</option>
+                                    <option value="3-6">3 – 6 years (Early Years)</option>
+                                    <option value="7-10">7 – 10 years (Primary)</option>
+                                    <option value="11-14">11 – 14 years (Secondary)</option>
+                                    <option value="15+">15+ years (Sixth Form)</option>
+                                    <option value="multiple">Multiple children</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="form-submit">
+                                <i class="fas fa-calendar-check"></i>
+                                Claim My Free Spot Now
+                                <i class="fas fa-arrow-right" style="font-size:0.85rem;"></i>
+                            </button>
+                        </form>
+                        <p class="form-micro">
+                            <i class="fas fa-shield-alt"></i>
+                            Your information is safe. We respect your privacy and never share your data.
+                        </p>
+                        <div style="display:flex;align-items:center;justify-content:center;gap:16px;margin-top:20px;padding-top:20px;border-top:1px solid var(--beige);">
+                            <div style="display:flex;align-items:center;gap:6px;">
+                                <i class="fas fa-lock" style="color:var(--sage-dark);font-size:0.78rem;"></i>
+                                <span style="font-size:0.75rem;color:var(--text-muted);">SSL Secure</span>
+                            </div>
+                            <div style="width:1px;height:16px;background:var(--beige);"></div>
+                            <div style="display:flex;align-items:center;gap:6px;">
+                                <i class="fas fa-check-circle" style="color:var(--sage-dark);font-size:0.78rem;"></i>
+                                <span style="font-size:0.75rem;color:var(--text-muted);">No Spam — Ever</span>
+                            </div>
+                            <div style="width:1px;height:16px;background:var(--beige);"></div>
+                            <div style="display:flex;align-items:center;gap:6px;">
+                                <i class="fas fa-undo" style="color:var(--sage-dark);font-size:0.78rem;"></i>
+                                <span style="font-size:0.75rem;color:var(--text-muted);">Unsubscribe Anytime</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== SUCCESS MODAL ====== -->
+    <div id="successModal" style="display:none;position:fixed;inset:0;background:rgba(45,36,32,0.6);z-index:9999;align-items:center;justify-content:center;backdrop-filter:blur(4px);">
+        <div style="background:white;border-radius:var(--radius-lg);padding:56px 48px;max-width:480px;width:90%;text-align:center;box-shadow:var(--shadow-float);animation:scaleIn 0.4s ease;">
+            <div style="width:80px;height:80px;background:linear-gradient(135deg,var(--sage-dark),var(--sage));border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 24px;font-size:2rem;color:white;">🎉</div>
+            <h3 style="font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;color:var(--text-dark);margin-bottom:12px;">You're Registered!</h3>
+            <p style="color:var(--text-mid);line-height:1.7;margin-bottom:32px;">We've sent your confirmation to your email. We can't wait to see you at the masterclass. Check your inbox for your access link!</p>
+            <button onclick="closeModal()" style="background:linear-gradient(135deg,var(--terracotta),var(--terracotta-light));color:white;border:none;padding:14px 32px;border-radius:50px;font-size:0.95rem;font-weight:600;cursor:pointer;box-shadow:0 8px 24px rgba(193,122,94,0.35);">Perfect, Thank You!</button>
+        </div>
+    </div>
+    <style>
+        @keyframes scaleIn { from{transform:scale(0.8);opacity:0;} to{transform:scale(1);opacity:1;} }
+        #successModal.open { display: flex !important; }
+    </style>
+
+    <!-- ====== FOOTER ====== -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-top">
+                <div>
+                    <div class="footer-logo">
+                        <div class="logo-mark">
+                        <i class="fas fa-seedling logo-leaf"></i>
+                        </div>
+                        <!-- <div class="footer-logo-mark">
+                            <i class="fas fa-seedling"></i>
+                        </div> -->
+                        <div>
+                            <div class="footer-logo-name">Bloom &amp; Learn</div>
+                            <span class="footer-logo-tag">Nurturing Brilliant Minds</span>
+                        </div>
+                    </div>
+                    <p class="footer-desc">Empowering parents with the tools, confidence, and community to raise lifelong, joyful learners — from the comfort of home.</p>
+                    <div class="footer-socials">
+                        <a href="#" class="social-btn" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-btn" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-btn" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+                        <a href="#" class="social-btn" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-btn" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-col-title">Quick Links</h4>
+                    <div class="footer-links">
+                        <a href="#hero" class="footer-link">Home</a>
+                        <a href="#register" class="footer-link">Free Masterclass</a>
+                        <a href="#" class="footer-link">About Dr. Eleanor</a>
+                        <a href="#" class="footer-link">Blog &amp; Resources</a>
+                        <a href="#" class="footer-link">Parent Community</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-col-title">Get In Touch</h4>
+                    <div class="footer-links">
+                        <a href="mailto:hello@bloomandlearn.co.uk" class="footer-link">
+                            <i class="fas fa-envelope" style="margin-right:8px;color:var(--sage-light);"></i>
+                            hello@bloomandlearn.co.uk
+                        </a>
+                        <a href="#" class="footer-link">
+                            <i class="fab fa-whatsapp" style="margin-right:8px;color:var(--sage-light);"></i>
+                            WhatsApp Support
+                        </a>
+                        <div style="margin-top:20px;">
+                            <a href="#register" style="display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--terracotta),var(--terracotta-light));color:white;padding:12px 20px;border-radius:50px;font-size:0.82rem;font-weight:600;text-decoration:none;box-shadow:0 6px 16px rgba(193,122,94,0.3);">
+                                <i class="fas fa-gift"></i>
+                                Free Masterclass
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copy">© 2026 Bloom &amp; Learn Ltd. All rights reserved. Developed by Zannatul. Registered in England &amp; Wales.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Use</a>
+                    <a href="#">Cookie Policy</a>
+                    <a href="#">Disclaimer</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Header scroll effect
+        const header = document.getElementById('mainHeader');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 40) header.classList.add('scrolled');
+            else header.classList.remove('scrolled');
+        });
+
+        // Intersection Observer for fade-in
+        const fadeEls = document.querySelectorAll('.fade-in');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+        fadeEls.forEach(el => observer.observe(el));
+
+        // Form submission
+        function handleSubmit(e) {
+            e.preventDefault();
+            const modal = document.getElementById('successModal');
+            modal.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('successModal');
+            modal.classList.remove('open');
+            document.body.style.overflow = '';
+            document.getElementById('registrationForm').reset();
+        }
+
+        // Close modal on background click
+        document.getElementById('successModal').addEventListener('click', (e) => {
+            if (e.target === e.currentTarget) closeModal();
+        });
+
+        // Smooth scroll for all anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    const headerHeight = 72;
+                    const top = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                    window.scrollTo({ top, behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
